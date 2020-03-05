@@ -43,6 +43,12 @@ class App extends Component {
     this.setState([items: updatedItems])
   }
 
+
+  componentDidMount() {
+    this.getItems
+  }
+
+
   render() {
     return (
       <div>
