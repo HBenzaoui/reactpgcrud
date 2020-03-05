@@ -18,6 +18,31 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  addItemToState = (item) => {
+    this.setState(prevstate => ({
+      items: [...prevstate.items, item]
+    }))
+  }
+
+  updateState = (item) => {
+    const itemIndex = this.state.items.findIndex(data => data.id === item.id)
+    const newArray = [
+      // destructure all items from beginning to the indexed item
+      ...this.state.items.slice(0, itemIndex),
+      //add the updated item to the arraw
+      item,
+      //add the rest of the items to the arratfrom the index after the replaced item
+      ...this.state.item.slice(itemIndex + 1)
+
+    ]
+    this.setState({ items: newArray })
+  }
+
+  deleteItemFromState = (id) => {
+    const updatedItems = this.state.items.filter(item => item.id !== id)
+    this.setState([items: updatedItems])
+  }
+
   render() {
     return (
       <div>
