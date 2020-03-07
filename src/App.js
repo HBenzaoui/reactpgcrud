@@ -29,9 +29,9 @@ class App extends Component {
     const newArray = [
       // destructure all items from beginning to the indexed item
       ...this.state.items.slice(0, itemIndex),
-      //add the updated item to the arraw
+      //add the updated item to the array
       item,
-      //add the rest of the items to the arratfrom the index after the replaced item
+      //add the rest of the items to the array from the index after the replaced item
       ...this.state.item.slice(itemIndex + 1)
 
     ]
@@ -59,7 +59,7 @@ class App extends Component {
         </Row>
         <Row>
           <Col>
-            {/* <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} /> */}
+            <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} />
           </Col>
         </Row>
         <Row>
