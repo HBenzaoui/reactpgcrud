@@ -32,8 +32,7 @@ class App extends Component {
       //add the updated item to the array
       item,
       //add the rest of the items to the array from the index after the replaced item
-      ...this.state.item.slice(itemIndex + 1)
-
+      ...this.state.items.slice(itemIndex + 1)
     ]
     this.setState({ items: newArray })
   }
@@ -71,7 +70,7 @@ class App extends Component {
               className="btn btn-primary"
               data={this.state.items}>
               Download CSV</CSVLink>
-            {/* <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} /> */}
+            <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} />
           </Col>
         </Row>
       </Container>
