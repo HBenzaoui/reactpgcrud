@@ -1,12 +1,69 @@
 import React, { Component } from 'react'
-import { table, Button } from 'reactstrap'
+import { Table, Button } from 'reactstrap'
+import ModalForm from '../Modals/Modal'
 
 class DataTable extends Component {
-  render() {
-    return (
-      <div>
 
-      </div>
+  //Confirm Delete item from DB
+  deleteItem = id => {
+    let confirmDelete = window.confirm('Delete Product forever!?')
+    if (confirmDelete) {
+      fetch('http://localhost:3000/pgcrud', {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id
+        })
+      })
+        .then(response => response.json())
+        .then(item => {
+          this.props.deleteItemFromState(id)
+        })
+        .catch(err => console.log(err))
+    }
+  }
+
+  render() {
+
+    const items = this.props.items.map(item => {
+      return (
+        <tr key={item.id}>
+          <th scope="row">{item.id}</th>
+          <td>{item.first}</td>
+          <td>{item.last}</td>
+          <td>{item.email}</td>
+          <td>{item.phone}</td>
+          <td>{item.location}</td>
+          <td>{item.hobby}</td>
+          <td>
+            <dir style={{ width: "110px" }}>
+              <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} />
+              {' '}
+              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
+            </dir>
+          </td>
+        </tr>
+      )
+    })
+
+    return (
+      <Table responsive hover>
+        <thead>
+          <th>ID</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Location</th>
+          <th>Hobby</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          {items}
+        </tbody>
+      </Table>
     )
   }
 }
