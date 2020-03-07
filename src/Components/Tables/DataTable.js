@@ -51,14 +51,16 @@ class DataTable extends Component {
     return (
       <Table responsive hover>
         <thead>
-          <th>ID</th>
-          <th>First</th>
-          <th>Last</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Location</th>
-          <th>Hobby</th>
-          <th>Actions</th>
+          <tr>
+            <th>ID</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Location</th>
+            <th>Hobby</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
           {items}
