@@ -6,7 +6,7 @@ class DataTable extends Component {
 
   //Confirm Delete item from DB
   deleteItem = id => {
-    let confirmDelete = window.confirm('Delete Product forever!?')
+    let confirmDelete = window.confirm('Étes-vous sûr de vouloir supprimer le produit?')
     if (confirmDelete) {
       fetch('http://localhost:3000/pgcrud', {
         method: 'delete',
@@ -38,10 +38,10 @@ class DataTable extends Component {
           <td>{item.location}</td>
           <td>{item.hobby}</td>
           <td>
-            <dir style={{ width: "110px" }}>
-              <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} />
+            <dir style={{ width: "150px", margin: "0px", padding: "0px", alignment: "center" }}>
+              <ModalForm buttonLabel="Modifier" item={item} updateState={this.props.updateState} />
               {' '}
-              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
+              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Suppr</Button>
             </dir>
           </td>
         </tr>
@@ -52,13 +52,13 @@ class DataTable extends Component {
       <Table responsive hover>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>First</th>
-            <th>Last</th>
+            <th>Id</th>
+            <th>Prénom</th>
+            <th>Nome</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th>Location</th>
-            <th>Hobby</th>
+            <th>Tél</th>
+            <th>Localisation</th>
+            <th>Activité</th>
             <th>Actions</th>
           </tr>
         </thead>

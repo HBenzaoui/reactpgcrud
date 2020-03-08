@@ -19,8 +19,8 @@ class App extends Component {
   }
 
   addItemToState = (item) => {
-    this.setState(prevstate => ({
-      items: [...prevstate.items, item]
+    this.setState(prevState => ({
+      items: [...prevState.items, item]
     }))
   }
 
@@ -69,8 +69,8 @@ class App extends Component {
               style={{ float: "left", marginRight: "10px" }}
               className="btn btn-primary"
               data={this.state.items}>
-              Download CSV</CSVLink>
-            <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} />
+              Télécharger Excel</CSVLink>
+            <ModalForm buttonLabel="Nouveau" addItemToState={this.addItemToState} />
           </Col>
         </Row>
       </Container>

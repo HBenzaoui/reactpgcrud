@@ -87,11 +87,11 @@ class AddEditForm extends Component {
     return (
       <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd}>
         <FormGroup>
-          <Label for="first">First Name</Label>
+          <Label for="first">Prénom</Label>
           <Input type="text" name="first" id="first" onChange={this.onChange} value={this.state.first === null ? '' : this.state.first} />
         </FormGroup>
         <FormGroup>
-          <Label for="last">Last Name</Label>
+          <Label for="last">Nom</Label>
           <Input type="text" name="last" id="last" onChange={this.onChange} value={this.state.last === null ? '' : this.state.last} />
         </FormGroup>
         <FormGroup>
@@ -99,18 +99,18 @@ class AddEditForm extends Component {
           <Input type="text" name="email" id="email" onChange={this.onChange} value={this.state.email === null ? '' : this.state.email} />
         </FormGroup>
         <FormGroup>
-          <Label for="phone">Phone number</Label>
+          <Label for="phone">Tél</Label>
           <Input type="text" name="phone" id="phone" onChange={this.onChange} value={this.state.phone === null ? '' : this.state.phone} placeholder="ex. 0555 56 48 68" />
         </FormGroup>
         <FormGroup>
-          <Label for="location">Location</Label>
+          <Label for="location">Localisation</Label>
           <Input type="text" name="location" id="location" onChange={this.onChange} value={this.state.location === null ? '' : this.state.location} placeholder="Wilaya" />
         </FormGroup>
         <FormGroup>
-          <Label for="hobby">Hobby</Label>
+          <Label for="hobby">Activité</Label>
           <Input type="text" name="hobby" id="hobby" onChange={this.onChange} value={this.state.hobby === null ? '' : this.state.hobby} />
         </FormGroup>
-        <Button color="success">Submit</Button>
+        <Button color="success">Sauvegarder</Button>
       </Form>
     )
   }
