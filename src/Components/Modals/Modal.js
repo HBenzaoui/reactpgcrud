@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import AddEditForm from '../Forms/AddEditForm'
-
 
 class ModalForm extends Component {
   constructor(props) {
@@ -54,6 +53,11 @@ class ModalForm extends Component {
               item={this.props.item}
             />
           </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={this.toggle}>Annuler</Button>
+            <Button color="success" form='my-form' type="submit">Sauvegarder</Button>
+          </ModalFooter>
+
         </Modal>
       </>
     )

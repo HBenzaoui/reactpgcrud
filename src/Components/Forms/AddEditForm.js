@@ -85,7 +85,8 @@ class AddEditForm extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd}>
+      <Form id='my-form'
+        onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd}>
         <FormGroup>
           <Label for="first">Prénom</Label>
           <Input type="text" name="first" id="first" onChange={this.onChange} value={this.state.first === null ? '' : this.state.first} />
@@ -110,7 +111,6 @@ class AddEditForm extends Component {
           <Label for="hobby">Activité</Label>
           <Input type="text" name="hobby" id="hobby" onChange={this.onChange} value={this.state.hobby === null ? '' : this.state.hobby} />
         </FormGroup>
-        <Button color="success">Sauvegarder</Button>
       </Form>
     )
   }
