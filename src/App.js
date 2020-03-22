@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   updateState = (item) => {
-    const itemIndex = this.state.items.findIndex(data => data.id === item.id)
+    const itemIndex = this.state.items.findIndex(data => data.code_p === item.code_p)
     const newArray = [
       // destructure all items from beginning to the indexed item
       ...this.state.items.slice(0, itemIndex),
@@ -37,8 +37,8 @@ class App extends Component {
     this.setState({ items: newArray })
   }
 
-  deleteItemFromState = (id) => {
-    const updatedItems = this.state.items.filter(item => item.id !== id)
+  deleteItemFromState = (code_p) => {
+    const updatedItems = this.state.items.filter(item => item.code_p !== code_p)
     this.setState({ items: updatedItems })
   }
 

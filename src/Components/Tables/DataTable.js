@@ -5,7 +5,7 @@ import ModalForm from '../Modals/Modal'
 class DataTable extends Component {
 
   //Confirm Delete item from DB
-  deleteItem = id => {
+  deleteItem = code_p => {
     let confirmDelete = window.confirm('Étes-vous sûr de vouloir supprimer le produit?')
     if (confirmDelete) {
       fetch('http://localhost:3000/pgcrud', {
@@ -14,12 +14,12 @@ class DataTable extends Component {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id
+          code_p
         })
       })
         .then(response => response.json())
         .then(item => {
-          this.props.deleteItemFromState(id)
+          this.props.deleteItemFromState(code_p)
         })
         .catch(err => console.log(err))
     }
@@ -29,19 +29,19 @@ class DataTable extends Component {
 
     const items = this.props.items.map(item => {
       return (
-        <tr key={item.id}>
-          <th scope="row">{item.id}</th>
-          <td>{item.first}</td>
-          <td>{item.last}</td>
-          <td>{item.email}</td>
-          <td>{item.phone}</td>
-          <td>{item.location}</td>
-          <td>{item.hobby}</td>
+        <tr key={item.code_p}>
+          <th scope="row">{item.code_p}</th>
+          <td>{item.refer_p}</td>
+          <td>{item.nom_p}</td>
+          <td>{item.prixht_p}</td>
+          <td>{item.prixvd_p}</td>
+          <td>{item.qut_p}</td>
+          <td>{item.tva_p}</td>
           <td>
             <dir style={{ width: "150px", margin: "0px", padding: "0px", alignment: "center" }}>
               <ModalForm buttonLabel="Modifier" item={item} updateState={this.props.updateState} />
               {' '}
-              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Suppr</Button>
+              <Button color="danger" onClick={() => this.deleteItem(item.code_p)}>Suppr</Button>
             </dir>
           </td>
         </tr>
@@ -49,16 +49,16 @@ class DataTable extends Component {
     })
 
     return (
-      <Table responsive hover>
+      <Table size="sm" responsive hover bordered>
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Prénom</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Tél</th>
-            <th>Localisation</th>
-            <th>Activité</th>
+            <th>Code</th>
+            <th>Réference</th>
+            <th>Designation</th>
+            <th>Prix d'achat</th>
+            <th>Prix de vente</th>
+            <th>Qut</th>
+            <th>TVA</th>
             <th>Actions</th>
           </tr>
         </thead>
